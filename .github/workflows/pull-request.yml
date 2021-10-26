@@ -1,8 +1,6 @@
 name: Flutter Web CI
 
 on:
-  push:
-    branches: [ci]
   pull_request:
     branches: [master]
 
@@ -18,4 +16,3 @@ jobs:
       - run: flutter pub get
       - run: flutter test
       - run: flutter build web
-        working-directory: ./web
