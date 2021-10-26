@@ -1,16 +1,36 @@
-# flutter_app
+# Set up
+### [Install flutter](https://flutter.dev/docs/get-started/install)
+### Enable web
+``` bash
+flutter config --enable-web
+```
+### Check flutter instalation and web support
+``` bash
+flutter doctor
+```
+### Run for development
+```bash
+# Check that chrome device is available
+# If not, add and export CHROME_EXECUTABLE environment 
+# variable in your .bashrc and check again
+flutter check devices  
+# If last step is right you will be able to run in web
+flutter run -d chrome
+```
+### Build for deployment
+```bash
+# This command will generate html and javascript files
+# in build/web directory
+flutter build web
+```
+# Project structure
 
-A new Flutter application.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### Config
+App configuration like style, constants or routes
+is centralised here.
+### Screens
+User interfaces. (Home screen, SingleURL screen)
+### Widgets
+App custom widgets (buttons, tabBar)
+### Services
+Conexion with external services like RESTful apis
