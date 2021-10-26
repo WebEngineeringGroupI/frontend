@@ -23,8 +23,22 @@ flutter run -d chrome
 # in build/web directory
 flutter build web
 ```
-# Project structure
+# Dependency management
+Project dependencies are first added in pubspec.yaml file.
+```yaml
+dependencies:
+  cupertino_icons: ^1.0.3
+```
+After that, you can include an import that uses the dependency.
+```dart
+import 'package:cupertino_icons/cupertino_icons.dart';
+```
+To update all project dependencies in yout local machine, execute:
+```bash
+flutter pub get
+```
 
+# /lib  Project structure
 ### Config
 App configuration like style, constants or routes
 is centralised here.
