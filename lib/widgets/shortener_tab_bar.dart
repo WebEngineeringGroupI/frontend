@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/config/constants.dart';
+import 'package:flutter_app/screens/single_url.dart';
 
 /// Tab bar titles
 Widget shortenerTabBar() {
@@ -27,7 +28,7 @@ Widget shortenerTabBarView() {
   return TabBarView(
       physics: NeverScrollableScrollPhysics(),
       children: [
-        Center(child: Text("SingleURL")),
+        SingleUrl(),
         Center(child: Text("MultipleURL")),
         Center(child: Text("Csv"))
       ]
