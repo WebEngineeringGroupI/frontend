@@ -25,7 +25,7 @@ class Constants {
       "You will receive another CSV file eith all URLs shorted.";
   static const String CSV_ERROR = "Something is wrong with the CSV file";
   static const String CSV_ERROR_ADVICE = "Check the file and upload it again";
-
+  static const String CSV_BUTTON = "Add CSV file";
   /// Buttons
   static const String SHORT_BUTTON = "Short";
   static const String GO_BACK_BUTTON = "Short another URL";

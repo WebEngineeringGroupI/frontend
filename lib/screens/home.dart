@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/config/constants.dart';
-import 'package:flutter_app/services/rest_api.dart';
+import 'package:flutter_app/services/rest_api_client.dart';
 import 'package:flutter_app/widgets/shortener_tab_bar.dart';
 
 /// This widget shows the app title, app slogan and a tabBar

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/config/constants.dart';
-import 'package:flutter_app/services/rest_api.dart';
+import 'package:flutter_app/services/rest_api_client.dart';
 
 const singleUrlInputKey = Key('singleUrlInputKey');
 const singleUrlShortButton = Key("singleUrlShortButton");
@@ -44,7 +44,7 @@ class _SingleUrlState extends State<SingleUrl> {
         controller: controller,
         onChanged: (String? text) {
           setState(() {
-            longURL = text == null ? "" : text;
+            longURL = text ?? "";
           });
         },
       ),
@@ -69,11 +69,11 @@ class _SingleUrlState extends State<SingleUrl> {
     );
   }
 
-  void handleShortURL() {
-    var shortened = restAPIClient.shortURL(longURL);
+  Future<void> handleShortURL() async {
+    var shortened = await restAPIClient.shortURL(longURL);
     setState(() {
       displayResult = true;
-      shortURL = shortened == null ? "" : shortened;
+      shortURL = shortened ?? "";
     });
   }
 

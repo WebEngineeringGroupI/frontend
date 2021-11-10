@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app/config/themes.dart';
 import 'package:flutter_app/config/constants.dart';
 import 'package:flutter_app/config/routes.dart';
-import 'package:flutter_app/services/rest_api.dart';
+import 'package:flutter_app/services/backend_rest_api_client.dart';
+import 'package:flutter_app/services/rest_api_client.dart';
 
 void main() {
-  runApp(MyApp(restAPIClient: RestAPIClient()));
+  runApp(MyApp(restAPIClient: BackendRestAPIClient()));
 }
 
 class MyApp extends StatelessWidget {

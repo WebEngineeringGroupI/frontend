@@ -1,10 +1,22 @@
-import 'package:flutter_app/services/rest_api.dart';
+import 'dart:typed_data';
+
+import 'package:flutter_app/services/rest_api_client.dart';
+import 'dart:io';
 
 class FakeRestAPIClient implements RestAPIClient {
   late String shortURLExpected;
 
   @override
-  String? shortURL(String longURL) {
-    return shortURLExpected;
+  Future<String?> shortURL(String longURL) {
+    return Future<String>.value(shortURLExpected);
   }
+
+  @override
+  Future<String?> shortCSV(Uint8List longCSV) {
+    throw UnimplementedError();
+  }
+
+
+
+
 }
