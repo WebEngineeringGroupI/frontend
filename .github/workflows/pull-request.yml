@@ -3,6 +3,8 @@ name: Flutter Web CI
 on:
   pull_request:
     branches: [master]
+  push:
+    branches: [master]
 
 jobs:
   build:
@@ -14,5 +16,5 @@ jobs:
           channel: beta
       - run: flutter config --enable-web
       - run: flutter pub get
-      - run: flutter test
+      - run: flutter test --platform chrome
       - run: flutter build web
