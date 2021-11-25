@@ -1,6 +1,6 @@
 import 'dart:typed_data';
 
-class RestAPIClient {
+class APIClient {
   Future<String?> shortURL(String longURL) {
     return Future.value(null);
   }

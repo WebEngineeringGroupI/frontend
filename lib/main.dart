@@ -10,7 +10,7 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  final RestAPIClient restAPIClient;
+  final APIClient restAPIClient;
 
   const MyApp({Key? key, required this.restAPIClient}) : super(key: key);
 

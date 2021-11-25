@@ -9,7 +9,7 @@ import 'package:flutter_app/services/rest_api_client.dart';
 const csvButtonKey = Key('csvButtonKey');
 
 class Csv extends StatefulWidget {
-  final RestAPIClient restAPIClient;
+  final APIClient restAPIClient;
 
   Csv({Key? key, required this.restAPIClient}) : super(key: key);
   @override

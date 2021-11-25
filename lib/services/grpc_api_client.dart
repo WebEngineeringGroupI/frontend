@@ -3,7 +3,7 @@ import 'package:flutter_app/services/rest_api_client.dart';
 import 'package:grpc/grpc.dart';
 import 'package:genproto_dart/api/v1alpha1/url_shortener.pbgrpc.dart';
 
-class GRPCAPIClient implements RestAPIClient {
+class GRPCAPIClient implements APIClient {
   final String baseUrl = "http://127.0.0.1:8080";
   final ClientChannel grpcChannel;
   late final URLShorteningClient urlShorteningClient;

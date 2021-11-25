@@ -7,7 +7,7 @@ void main() {
   testWidgets('Home displays a title and a slogan',
       (WidgetTester tester) async {
     // Build app screen and capture the first frame
-    await tester.pumpWidget(MyApp(restAPIClient: RestAPIClient()));
+    await tester.pumpWidget(MyApp(restAPIClient: APIClient()));
 
     // Verify that displays correct title and slogan.
     expect(find.text(Constants.APP_TITLE), findsOneWidget);
