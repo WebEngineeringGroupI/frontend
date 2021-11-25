@@ -38,7 +38,11 @@ class GRPCAPIClient implements APIClient {
     }
 
     var shortURLs = urlShorteningClient.shortURLs(shortURLRequest());
-    var urlsShortened = await shortURLs.toList();
-    return urlsShortened.join("\n");
+    var csvContents = shortURLs
+        .map((e) => e.hasSuccess()
+            ? (e.success.longUrl + "," + e.success.shortUrl)
+            : (e.error.url + "," + e.error.error))
+        .join("\n");
+    return await csvContents;
   }
 }
