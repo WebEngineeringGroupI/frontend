@@ -15,7 +15,7 @@ Widget buildTestableWidget(Widget widget) {
 void main() {
   testWidgets('Single url screen displays input box and short button',
       (WidgetTester tester) async {
-    await tester.pumpWidget(MyApp(restAPIClient: RestAPIClient()));
+    await tester.pumpWidget(MyApp(restAPIClient: APIClient()));
 
     expect(find.byKey(singleUrlShortButton), findsOneWidget);
     expect(find.byKey(singleUrlInputKey), findsOneWidget);
@@ -23,7 +23,7 @@ void main() {
 
   testWidgets('When the short button is pushed, the input box disappears',
       (WidgetTester tester) async {
-    await tester.pumpWidget(MyApp(restAPIClient: RestAPIClient()));
+    await tester.pumpWidget(MyApp(restAPIClient: APIClient()));
 
     await tester.tap(find.text(Constants.SHORT_BUTTON));
     await tester.pump();

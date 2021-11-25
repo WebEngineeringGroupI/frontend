@@ -7,7 +7,7 @@ const singleUrlShortButton = Key("singleUrlShortButton");
 const singleUrlShortenedBox = Key("singleUrlShortenedBox");
 
 class SingleUrl extends StatefulWidget {
-  final RestAPIClient restAPIClient;
+  final APIClient restAPIClient;
 
   SingleUrl({Key? key, required this.restAPIClient}) : super(key: key);
 
@@ -17,7 +17,7 @@ class SingleUrl extends StatefulWidget {
 }
 
 class _SingleUrlState extends State<SingleUrl> {
-  final RestAPIClient restAPIClient;
+  final APIClient restAPIClient;
   bool displayResult = false;
   String shortURL = "";
   String longURL = "";

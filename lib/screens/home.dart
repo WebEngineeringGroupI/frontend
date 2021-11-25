@@ -5,7 +5,7 @@ import 'package:flutter_app/widgets/shortener_tab_bar.dart';
 
 /// This widget shows the app title, app slogan and a tabBar
 class Home extends StatefulWidget {
-  final RestAPIClient restAPIClient;
+  final APIClient restAPIClient;
 
   @override
   _HomeState createState() => _HomeState(restAPIClient: this.restAPIClient);
@@ -14,7 +14,7 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  final RestAPIClient restAPIClient;
+  final APIClient restAPIClient;
 
   @override
   Widget build(BuildContext context) {
