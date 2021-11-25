@@ -1,7 +1,6 @@
 import 'dart:convert';
 import 'dart:typed_data';
 import 'package:dio/dio.dart';
-import 'package:file_picker/file_picker.dart';
 import 'package:flutter_app/services/rest_api_client.dart';
 import 'package:http_parser/http_parser.dart';
 

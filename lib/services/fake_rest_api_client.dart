@@ -1,7 +1,6 @@
 import 'dart:typed_data';
 
 import 'package:flutter_app/services/rest_api_client.dart';
-import 'dart:io';
 
 class FakeRestAPIClient implements RestAPIClient {
   late String shortURLExpected;
