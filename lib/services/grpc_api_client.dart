@@ -4,12 +4,10 @@ import 'package:grpc/grpc.dart';
 import 'package:genproto_dart/api/v1alpha1/url_shortener.pbgrpc.dart';
 
 class GRPCAPIClient implements APIClient {
-  final String baseUrl = "http://127.0.0.1:8080";
-  final ClientChannel grpcChannel;
   late final URLShorteningClient urlShorteningClient;
 
-  GRPCAPIClient(this.grpcChannel) {
-    this.urlShorteningClient = URLShorteningClient(this.grpcChannel);
+  GRPCAPIClient(ClientChannel grpcChannel) {
+    this.urlShorteningClient = URLShorteningClient(grpcChannel);
   }
 
   @override
@@ -37,7 +35,7 @@ class GRPCAPIClient implements APIClient {
       }
     }
 
-    var shortURLs = urlShorteningClient.shortURLs(shortURLRequest());
+    var shortURLs = urlShorteningClient.shortURLs(sholib/screens/csv.dart:54:9rtURLRequest());
     var csvContents = shortURLs
         .map((e) => e.hasSuccess()
             ? (e.success.longUrl + "," + e.success.shortUrl)
