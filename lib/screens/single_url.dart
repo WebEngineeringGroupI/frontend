@@ -18,9 +18,9 @@ class SingleUrl extends StatefulWidget {
 
 class _SingleUrlState extends State<SingleUrl> {
   final APIClient restAPIClient;
+  TextEditingController longURLController =  TextEditingController();
   bool displayResult = false;
   String shortURL = "";
-  String longURL = "";
 
   @override
   Widget build(BuildContext context) {
@@ -32,21 +32,10 @@ class _SingleUrlState extends State<SingleUrl> {
   }
 
   Widget urlShorteningInputBox() {
-    var controller = TextEditingController();
-    controller.text = longURL;
-    controller.selection = TextSelection.fromPosition(
-      TextPosition(offset: controller.text.length),
-    );
-
     var textField = Flexible(
       child: TextField(
         key: singleUrlInputKey,
-        controller: controller,
-        onChanged: (String? text) {
-          setState(() {
-            longURL = text ?? "";
-          });
-        },
+        controller: longURLController,
       ),
     );
 
@@ -54,7 +43,7 @@ class _SingleUrlState extends State<SingleUrl> {
       child: ElevatedButton(
           key: singleUrlShortButton,
           onPressed: handleShortURL,
-          child: Text(Constants.SHORT_BUTTON)),
+          child: const Text(Constants.SHORT_BUTTON)),
     );
 
     return Column(
@@ -70,7 +59,7 @@ class _SingleUrlState extends State<SingleUrl> {
   }
 
   Future<void> handleShortURL() async {
-    var shortened = await restAPIClient.shortURL(longURL);
+    var shortened = await restAPIClient.shortURL(longURLController.text);
     setState(() {
       displayResult = true;
       shortURL = shortened ?? "";
