@@ -30,7 +30,7 @@ class _HomeState extends State<Home> {
             //Web
             return Padding(
               padding: EdgeInsets.symmetric(
-                  vertical: height * 0.05, horizontal: width * 0.3),
+                  vertical: height * 0.05, horizontal: width * 0.35),
               child: content(width),
             );
           } else {
@@ -66,7 +66,7 @@ class _HomeState extends State<Home> {
             maxLines: 5,
           ),
         ),
-        Flexible(child: SizedBox(height: 25)),
+        const Flexible(child: SizedBox(height: 25)),
         Flexible(
           child: Text(
             Constants.APP_SLOGAN,
@@ -74,10 +74,13 @@ class _HomeState extends State<Home> {
             maxLines: 5,
           ),
         ),
-        Flexible(child: SizedBox(height: 25)),
+        const Flexible(child:  SizedBox(height: 25)),
         Flexible(child: shortenerTabBar()),
-        Expanded(
-          child: shortenerTabBarView(restAPIClient: restAPIClient),
+        SizedBox(
+              height: 500,
+              child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 5),
+                  child: shortenerTabBarView(restAPIClient: restAPIClient))
         )
       ],
     );

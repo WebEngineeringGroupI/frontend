@@ -3,6 +3,7 @@ class Constants {
   //Private constructor to prevent this class being instantiated
   Constants._();
 
+  static const String HINT_TEXT = "Type an URL";
   /// Home screen
   static const String APP_TITLE = "URL Shortener";
   static const String APP_SLOGAN = "Just copy an URL and we will do the magic "

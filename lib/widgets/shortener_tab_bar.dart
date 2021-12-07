@@ -27,9 +27,9 @@ Widget shortenerTabBar() {
 
 /// Tab bar content
 Widget shortenerTabBarView({required APIClient restAPIClient}) {
-  return TabBarView(physics: NeverScrollableScrollPhysics(), children: [
+  return TabBarView(physics: const NeverScrollableScrollPhysics(), children: [
     SingleUrl(restAPIClient: restAPIClient),
-    Center(child: Text("MultipleURL")),
+    const Center(child: Text("MultipleURL")),
     Csv(restAPIClient: restAPIClient)
   ]);
 }
