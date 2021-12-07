@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_app/config/constants.dart';
 import 'package:flutter_app/services/rest_api_client.dart';
+import 'package:flutter_app/widgets/error_message_box.dart';
 
 const singleUrlInputKey = Key('singleUrlInputKey');
 const singleUrlShortButton = Key("singleUrlShortButton");
@@ -90,7 +91,10 @@ class _SingleUrlState extends State<SingleUrl> {
                 "Shorted URL:",
                 style: Theme.of(context).textTheme.subtitle2,
               )),
-          Flexible(flex: 3, child: clipboardBox()),
+          (shortURL.isEmpty)
+              ? Flexible(flex:3, child: errorMessageBox("Invalid url "
+              "provided - Check it out!"))
+              : Flexible(flex: 3, child: clipboardBox()),
           Flexible(
               flex: 2,
               child: Text(
@@ -130,6 +134,7 @@ class _SingleUrlState extends State<SingleUrl> {
           border: Border.all(
         color: const Color.fromRGBO(197, 205, 215, 1.0),
       )),
+      padding: EdgeInsets.symmetric(horizontal: 5.0),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [

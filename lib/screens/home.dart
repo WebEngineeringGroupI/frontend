@@ -53,13 +53,6 @@ class _HomeState extends State<Home> {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: <Widget>[
         Flexible(
-          child: Image.asset(
-            "assets/confetti.gif",
-            height: 200.0,
-            width: 200.0,
-          ),
-        ),
-        Flexible(
           child: Text(
             Constants.APP_TITLE,
             style: Theme.of(context).textTheme.headline1,
