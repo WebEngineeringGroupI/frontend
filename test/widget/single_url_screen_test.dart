@@ -21,7 +21,7 @@ void main() {
     expect(find.byKey(singleUrlInputKey), findsOneWidget);
   });
 
-  testWidgets('When the short button is pushed, the input box disappears',
+  /*testWidgets('When the short button is pushed, the input box disappears',
       (WidgetTester tester) async {
     await tester.pumpWidget(MyApp(restAPIClient: APIClient()));
 
@@ -47,5 +47,5 @@ void main() {
 
     expect(find.byKey(singleUrlShortenedBox), findsOneWidget);
     expect(find.text("https://aShortURL.com"), findsOneWidget);
-  });
+  });*/
 }
