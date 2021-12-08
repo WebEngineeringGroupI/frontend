@@ -5,8 +5,18 @@ import 'package:flutter_app/config/routes.dart';
 import 'package:flutter_app/services/backend_rest_api_client.dart';
 import 'package:flutter_app/services/rest_api_client.dart';
 
+String urlEnvironment() {
+  const env = String.fromEnvironment("env");
+  switch (env) {
+    case "prod":
+      return "https://webeng.ovh";
+    default:
+      return "http://localhost:8080";
+  }
+}
+
 void main() {
-  runApp(MyApp(restAPIClient: BackendRestAPIClient()));
+  runApp(MyApp(restAPIClient: BackendRestAPIClient(baseUrl: urlEnvironment())));
 }
 
 class MyApp extends StatelessWidget {

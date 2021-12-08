@@ -3,7 +3,7 @@
 # Edit at https://www.toptal.com/developers/gitignore?templates=androidstudio,intellij,flutter,visualstudio
 analysis_options.yaml
 .metadata
-pubspec.lock
+.envrc
 ### Flutter ###
 # Flutter/Dart/Pub related
 **/doc/api/
