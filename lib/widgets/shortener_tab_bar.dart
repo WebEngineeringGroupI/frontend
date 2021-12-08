@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/config/constants.dart';
 import 'package:flutter_app/screens/csv.dart';
+import 'package:flutter_app/screens/multiple_url.dart';
 import 'package:flutter_app/screens/single_url.dart';
 import 'package:flutter_app/services/rest_api_client.dart';
 
@@ -29,7 +30,7 @@ Widget shortenerTabBar() {
 Widget shortenerTabBarView({required APIClient restAPIClient}) {
   return TabBarView(physics: const NeverScrollableScrollPhysics(), children: [
     SingleUrl(restAPIClient: restAPIClient),
-    const Center(child: Text("MultipleURL")),
+    MultipleUrl(restAPIClient: restAPIClient),
     Csv(restAPIClient: restAPIClient)
   ]);
 }
