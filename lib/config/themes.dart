@@ -9,6 +9,29 @@ class Themes {
       fontFamily: 'Roboto',
       indicatorColor: Colors.deepPurple,
 
+      /// TextForm decoration
+      inputDecorationTheme: const InputDecorationTheme(
+        enabledBorder: OutlineInputBorder(
+          borderSide: BorderSide(color: Color.fromRGBO(197, 205, 215, 1.0),
+              width: 2.0),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderSide: BorderSide(color: Color.fromRGBO(197, 205, 215, 1.0),
+              width: 2.0),
+        ),
+        hintStyle: TextStyle(color: Color.fromRGBO(197, 205, 215, 1.0))
+      ),
+
+      textSelectionTheme: const TextSelectionThemeData(
+        cursorColor: Colors.deepPurple,
+      ),
+
+      /// Button widget
+      elevatedButtonTheme: ElevatedButtonThemeData(
+        style: ButtonStyle(
+          backgroundColor:MaterialStateProperty.all(Colors.deepPurple),
+        )
+      ),
       /// TabBar widget
       tabBarTheme: const TabBarTheme(
           labelColor: Colors.deepPurple,
@@ -23,6 +46,12 @@ class Themes {
         headline1: TextStyle(
           fontSize: 35,
           color: Color.fromRGBO(41, 54, 70, 1.0),
+          overflow: TextOverflow.ellipsis,
+        ),
+        headline2: TextStyle(
+          fontSize: 20,
+          color: Color.fromRGBO(41, 54, 70, 1.0),
+          fontWeight: FontWeight.bold,
           overflow: TextOverflow.ellipsis,
         ),
         subtitle1: TextStyle(
