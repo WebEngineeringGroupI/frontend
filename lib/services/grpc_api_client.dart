@@ -45,4 +45,10 @@ class GRPCAPIClient implements APIClient {
         .join("\n");
     return await csvContents;
   }
+
+  @override
+  Future<String?> shortMultipleURL(List<String> longURLs) {
+    // TODO: implement shortMultipleURL
+    throw UnimplementedError();
+  }
 }

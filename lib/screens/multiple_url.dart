@@ -19,7 +19,7 @@ class _MultipleUrlState extends State<MultipleUrl> {
   final APIClient restAPIClient;
   ScrollController scrollController =  ScrollController();
   TextEditingController longURLController = TextEditingController();
-  List longURLList = [];
+  List<String> longURLList = [];
   bool displayResult = false;
   String shortURL = "";
 
@@ -255,9 +255,10 @@ class _MultipleUrlState extends State<MultipleUrl> {
   }
 
   Future<void> handleShortMultipleURL() async {
-    //var shortened = await restAPIClient.shortURL(longURLController.text);
+    var shortened = await restAPIClient.shortMultipleURL(longURLList);
     setState(() {
       displayResult = true;
+      shortURL = shortened ?? "";
     });
   }
 

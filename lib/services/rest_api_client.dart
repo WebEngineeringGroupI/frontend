@@ -8,6 +8,10 @@ class APIClient {
   Future<String?> shortCSV(Uint8List longCSV) {
     return Future.value(null);
   }
+
+  Future<String?> shortMultipleURL(List<String> longURLs) {
+    return Future.value(null);
+  }
 }
 
 class UnableToShortURLException implements Exception {
