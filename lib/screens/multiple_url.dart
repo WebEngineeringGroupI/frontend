@@ -44,7 +44,7 @@ class _MultipleUrlState extends State<MultipleUrl> {
 
     var urlList = Flexible(
       flex: 2,
-    child:Container(
+    child:SizedBox(
       height: 80.0 * longURLList.length,
       child: ListView.builder(
         itemCount: longURLList.length,
@@ -76,7 +76,7 @@ class _MultipleUrlState extends State<MultipleUrl> {
 
     var addURLButtoon =  Flexible(
       flex: 1,
-      child: TextButton(onPressed: handleAddLongURL, child: Text("Add URL"),),
+      child: TextButton(onPressed: handleAddLongURL, child: const Text("Add URL"),),
     );
     
     var shortButton = Flexible(
@@ -94,17 +94,18 @@ class _MultipleUrlState extends State<MultipleUrl> {
       children: [
         const Flexible(child: SizedBox(height: 25)),
         textInfo,
-        urlList,
         const Flexible(child: SizedBox(height: 25)),
+        textField,
+        const Flexible(child: SizedBox(height: 10)),
         Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              textField,
               addURLButtoon,
             ],
         ),
-
-        const Flexible(child: SizedBox(height: 25)),
+        const Flexible(child: SizedBox(height: 10)),
+        urlList,
+        const Flexible(child: SizedBox(height: 10)),
         shortButton,
       ],
     );
@@ -142,7 +143,7 @@ class _MultipleUrlState extends State<MultipleUrl> {
 
     var longURLs = Flexible(
       flex: 3,
-      child: Container(
+      child: SizedBox(
         height: 80.0 * longURLList.length,
         child: ListView.builder(
           itemCount: longURLList.length,
@@ -162,17 +163,20 @@ class _MultipleUrlState extends State<MultipleUrl> {
           height: 50,
           child: ElevatedButton(
             onPressed: handleGoBack,
-            child: Text(Constants.GO_BACK_BUTTON),
+            child: const Text(Constants.GO_BACK_BUTTON),
           ),
         )
       ],
     );
 
+    var decoration = BoxDecoration(
+        border: Border.all(
+          color: const Color.fromRGBO(197, 205, 215, 1.0),
+        )
+    );
+
     var box = Container(
-      decoration: BoxDecoration(
-          border: Border.all(
-            color: const Color.fromRGBO(197, 205, 215, 1.0),
-          )),
+      decoration: decoration,
       padding: const EdgeInsets.all(10.0),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -198,25 +202,34 @@ class _MultipleUrlState extends State<MultipleUrl> {
   }
 
   Widget clipboardBox() {
+    var shortURL =  Flexible(
+        flex: 4,
+        child: Text(
+          this.shortURL,
+          maxLines: 1,
+          overflow: TextOverflow.ellipsis,
+        )
+    );
+
+    var icon = Flexible(
+        child: IconButton(
+            onPressed: handleCopyShortURL, icon: const Icon(Icons.copy))
+    );
+
+    var decoration = BoxDecoration(
+        border: Border.all(
+          color: const Color.fromRGBO(197, 205, 215, 1.0),
+        )
+    );
+
     return Container(
-      decoration: BoxDecoration(
-          border: Border.all(
-            color: const Color.fromRGBO(197, 205, 215, 1.0),
-          )),
-      padding: EdgeInsets.symmetric(horizontal: 5.0),
+      decoration: decoration,
+      padding: const EdgeInsets.symmetric(horizontal: 5.0),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Flexible(
-              flex: 4,
-              child: Text(
-                shortURL,
-                maxLines: 1,
-                overflow: TextOverflow.ellipsis,
-              )),
-          Flexible(
-              child: IconButton(
-                  onPressed: handleCopyShortURL, icon: const Icon(Icons.copy)))
+          shortURL,
+          icon,
         ],
       ),
     );
@@ -228,6 +241,7 @@ class _MultipleUrlState extends State<MultipleUrl> {
         longURLList.add(longURLController.text);
       }
       longURLController.text = "";
+      //Scroll to last element added
       scrollController.animateTo(
         scrollController.position.maxScrollExtent + 80,
         curve: Curves.easeOut,
@@ -245,9 +259,9 @@ class _MultipleUrlState extends State<MultipleUrl> {
   }
   void handleGoBack() {
     setState(() {
-      displayResult = false;
       longURLController.text = "";
       longURLList.clear();
+      displayResult = false;
     });
   }
 

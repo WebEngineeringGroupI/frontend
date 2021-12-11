@@ -70,7 +70,7 @@ class _HomeState extends State<Home> {
         const Flexible(child:  SizedBox(height: 25)),
         Flexible(child: shortenerTabBar()),
         SizedBox(
-              height: 500,
+              height: 600,
               child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 5),
                   child: shortenerTabBarView(restAPIClient: restAPIClient))
