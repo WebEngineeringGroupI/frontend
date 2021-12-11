@@ -15,6 +15,12 @@ class FakeRestAPIClient implements APIClient {
     throw UnimplementedError();
   }
 
+  @override
+  Future<String?> shortMultipleURL(List<String> longURLs) {
+    // TODO: implement shortMultipleURL
+    throw UnimplementedError();
+  }
+
 
 
 

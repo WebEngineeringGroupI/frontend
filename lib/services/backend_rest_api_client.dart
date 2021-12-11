@@ -37,5 +37,21 @@ class BackendRestAPIClient implements APIClient {
     }
   }
 
+  @override
+  Future<String?> shortMultipleURL(List<String> longURLs) async {
+    var dio = Dio();
+    try {
+      final response = await dio.post(
+        baseUrl + "/api/v1/loadbalancer",
+        data: {'urls': longURLs},
+      );
+      return jsonDecode(response.data)['url'];
+    } catch(err) {
+
+      print("err");
+      return null;
+    }
+  }
+
   BackendRestAPIClient({required this.baseUrl});
 }

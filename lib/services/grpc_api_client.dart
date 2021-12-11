@@ -35,12 +35,18 @@ class GRPCAPIClient implements APIClient {
       }
     }
 
-    var shortURLs = urlShorteningClient.shortURLs(sholib/screens/csv.dart:54:9rtURLRequest());
+    var shortURLs = urlShorteningClient.shortURLs(shortURLRequest());
     var csvContents = shortURLs
         .map((e) => e.hasSuccess()
             ? (e.success.longUrl + "," + e.success.shortUrl)
             : (e.error.url + "," + e.error.error))
         .join("\n");
     return await csvContents;
+  }
+
+  @override
+  Future<String?> shortMultipleURL(List<String> longURLs) {
+    // TODO: implement shortMultipleURL
+    throw UnimplementedError();
   }
 }
