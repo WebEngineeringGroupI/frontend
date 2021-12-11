@@ -48,33 +48,29 @@ class _HomeState extends State<Home> {
 
   /// Screen content
   Widget content(width) {
+    var title = Text(
+        Constants.APP_TITLE + "\n",
+        style: Theme.of(context).textTheme.headline1,
+        maxLines: 5,
+      );
+
+    var slogan = Text(
+        Constants.APP_SLOGAN + "\n\n",
+        style: Theme.of(context).textTheme.subtitle1,
+        maxLines: 5,
+      );
+
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: <Widget>[
-        Flexible(
-          child: Text(
-            Constants.APP_TITLE,
-            style: Theme.of(context).textTheme.headline1,
-            maxLines: 5,
-          ),
-        ),
-        const Flexible(child: SizedBox(height: 25)),
-        Flexible(
-          child: Text(
-            Constants.APP_SLOGAN,
-            style: Theme.of(context).textTheme.subtitle1,
-            maxLines: 5,
-          ),
-        ),
-        const Flexible(child:  SizedBox(height: 25)),
-        Flexible(child: shortenerTabBar()),
-        SizedBox(
-              height: 500,
-              child: Padding(
+        Flexible(flex:1, child:title),
+        Flexible(flex:1, child:slogan),
+        Flexible(flex:1, child:shortenerTabBar()),
+        Expanded(flex:5, child:Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 5),
                   child: shortenerTabBarView(restAPIClient: restAPIClient))
-        )
+        ),
       ],
     );
   }

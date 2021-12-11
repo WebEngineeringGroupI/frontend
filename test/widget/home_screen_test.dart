@@ -10,7 +10,7 @@ void main() {
     await tester.pumpWidget(MyApp(restAPIClient: APIClient()));
 
     // Verify that displays correct title and slogan.
-    expect(find.text(Constants.APP_TITLE), findsOneWidget);
-    expect(find.text(Constants.APP_SLOGAN), findsOneWidget);
+    expect(find.textContaining(Constants.APP_TITLE), findsOneWidget);
+    expect(find.textContaining(Constants.APP_SLOGAN), findsOneWidget);
   });
 }
