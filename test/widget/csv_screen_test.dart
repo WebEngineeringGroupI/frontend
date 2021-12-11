@@ -1,5 +1,5 @@
 import 'package:flutter_app/main.dart';
-import 'package:flutter_app/screens/csv.dart';
+import 'package:flutter_app/screens/short_csv.dart';
 import 'package:flutter_app/services/api_client.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter_app/config/constants.dart';

@@ -45,7 +45,7 @@ class GRPCAPIClient implements APIClient {
   }
 
   @override
-  Future<String?> shortMultipleURL(List<String> longURLs) async{
+  Future<String?> balanceURLs(List<String> longURLs) async{
     var balanceURLs = urlShorteningClient.balanceURLs(BalanceURLsRequest(urls: longURLs));
     return await balanceURLs
         .onError((error, stackTrace) => throw error.toString())

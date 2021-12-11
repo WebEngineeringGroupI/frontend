@@ -10,7 +10,7 @@ class APIClient {
     return Future.value(null);
   }
 
-  Future<String?> shortMultipleURL(List<String> longURLs) {
+  Future<String?> balanceURLs(List<String> longURLs) {
     return Future.value(null);
   }
 }

@@ -8,17 +8,17 @@ const singleUrlInputKey = Key('singleUrlInputKey');
 const singleUrlShortButton = Key("singleUrlShortButton");
 const singleUrlShortenedBox = Key("singleUrlShortenedBox");
 
-class SingleUrl extends StatefulWidget {
+class ShortURL extends StatefulWidget {
   final APIClient restAPIClient;
 
-  SingleUrl({Key? key, required this.restAPIClient}) : super(key: key);
+  ShortURL({Key? key, required this.restAPIClient}) : super(key: key);
 
   @override
-  _SingleUrlState createState() =>
-      _SingleUrlState(restAPIClient: restAPIClient);
+  _ShortURLState createState() =>
+      _ShortURLState(restAPIClient: restAPIClient);
 }
 
-class _SingleUrlState extends State<SingleUrl> {
+class _ShortURLState extends State<ShortURL> {
   final APIClient restAPIClient;
   TextEditingController longURLController = TextEditingController();
   bool displayResult = false;
@@ -181,5 +181,5 @@ class _SingleUrlState extends State<SingleUrl> {
 
   }
 
-  _SingleUrlState({required this.restAPIClient});
+  _ShortURLState({required this.restAPIClient});
 }

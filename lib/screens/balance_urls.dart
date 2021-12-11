@@ -5,17 +5,17 @@ import 'package:flutter_app/services/api_client.dart';
 import 'package:flutter_app/widgets/error_message_box.dart';
 
 
-class MultipleUrl extends StatefulWidget {
+class BalanceURLs extends StatefulWidget {
   final APIClient restAPIClient;
 
-  MultipleUrl({Key? key, required this.restAPIClient}) : super(key: key);
+  BalanceURLs({Key? key, required this.restAPIClient}) : super(key: key);
 
   @override
-  _MultipleUrlState createState() =>
-      _MultipleUrlState(restAPIClient: restAPIClient);
+  _BalanceURLsState createState() =>
+      _BalanceURLsState(restAPIClient: restAPIClient);
 }
 
-class _MultipleUrlState extends State<MultipleUrl> {
+class _BalanceURLsState extends State<BalanceURLs> {
   final APIClient restAPIClient;
   ScrollController scrollController =  ScrollController();
   TextEditingController longURLController = TextEditingController();
@@ -83,7 +83,7 @@ class _MultipleUrlState extends State<MultipleUrl> {
       child: SizedBox(
         height: 50,
         child: ElevatedButton(
-            onPressed: handleShortMultipleURL,
+            onPressed: handleBalanceURLs,
             child: const Text(Constants.SHORT_BUTTON)),
       ),
     );
@@ -255,8 +255,8 @@ class _MultipleUrlState extends State<MultipleUrl> {
     Clipboard.setData(ClipboardData(text: shortURL));
   }
 
-  Future<void> handleShortMultipleURL() async {
-    var shortened = await restAPIClient.shortMultipleURL(longURLList);
+  Future<void> handleBalanceURLs() async {
+    var shortened = await restAPIClient.balanceURLs(longURLList);
     try {
       setState(() {
         displayResult = true;
@@ -270,5 +270,5 @@ class _MultipleUrlState extends State<MultipleUrl> {
     }
   }
 
-  _MultipleUrlState({required this.restAPIClient});
+  _BalanceURLsState({required this.restAPIClient});
 }

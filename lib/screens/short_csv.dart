@@ -8,15 +8,15 @@ import 'package:flutter_app/services/api_client.dart';
 
 const csvButtonKey = Key('csvButtonKey');
 
-class Csv extends StatefulWidget {
+class ShortCSV extends StatefulWidget {
   final APIClient restAPIClient;
 
-  Csv({Key? key, required this.restAPIClient}) : super(key: key);
+  ShortCSV({Key? key, required this.restAPIClient}) : super(key: key);
   @override
-  _CsvState createState() => _CsvState();
+  _ShortCSVState createState() => _ShortCSVState();
 }
 
-class _CsvState extends State<Csv> {
+class _ShortCSVState extends State<ShortCSV> {
   @override
   Widget build(BuildContext context) {
     return Column(
