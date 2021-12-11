@@ -21,6 +21,7 @@ class BackendRestAPIClient implements APIClient {
     }
   }
 
+  //Will throw exception if receives a bad statusCode response
   @override
   Future<String?> shortCSV(Uint8List longCSV) async {
     FormData _formData = FormData.fromMap({
@@ -28,29 +29,19 @@ class BackendRestAPIClient implements APIClient {
           contentType: MediaType.parse('text/csv')),
     });
     Dio dio = Dio();
-    try {
-      final response = await dio.post(baseUrl + "/csv", data: _formData);
-      return response.data;
-    } catch (err) {
-      print(err);
-      return null;
-    }
+    final response = await dio.post(baseUrl + "/csv", data: _formData);
+    return response.data;
   }
 
+  //Will throw exception if receives a bad statusCode response
   @override
   Future<String?> shortMultipleURL(List<String> longURLs) async {
     var dio = Dio();
-    try {
-      final response = await dio.post(
-        baseUrl + "/api/v1/loadbalancer",
-        data: {'urls': longURLs},
-      );
-      return jsonDecode(response.data)['url'];
-    } catch(err) {
-
-      print("err");
-      return null;
-    }
+    final response = await dio.post(
+      baseUrl + "/api/v1/loadbalancer",
+      data: {'urls': longURLs},
+    );
+    return jsonDecode(response.data)['url'];
   }
 
   BackendRestAPIClient({required this.baseUrl});

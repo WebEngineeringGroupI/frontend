@@ -23,6 +23,8 @@ class _SingleUrlState extends State<SingleUrl> {
   TextEditingController longURLController = TextEditingController();
   bool displayResult = false;
   String shortURL = "";
+  String errorMessage = "Invalid url "
+      "provided - Check it out!";
 
   @override
   Widget build(BuildContext context) {
@@ -92,8 +94,7 @@ class _SingleUrlState extends State<SingleUrl> {
                 style: Theme.of(context).textTheme.subtitle2,
               )),
           (shortURL.isEmpty)
-              ? Flexible(flex:3, child: errorMessageBox("Invalid url "
-              "provided - Check it out!"))
+              ? Flexible(flex:3, child: errorMessageBox(errorMessage))
               : Flexible(flex: 3, child: clipboardBox()),
           Flexible(
               flex: 2,
@@ -165,11 +166,19 @@ class _SingleUrlState extends State<SingleUrl> {
   }
 
   Future<void> handleShortURL() async {
-    var shortened = await restAPIClient.shortURL(longURLController.text);
-    setState(() {
-      displayResult = true;
-      shortURL = shortened ?? "";
-    });
+    try {
+      var shortened = await restAPIClient.shortURL(longURLController.text);
+      setState(() {
+        displayResult = true;
+        shortURL = shortened ?? "";
+      });
+    } catch(err) {
+      setState((){
+        displayResult = true;
+        shortURL = "";
+      });
+    }
+
   }
 
   _SingleUrlState({required this.restAPIClient});

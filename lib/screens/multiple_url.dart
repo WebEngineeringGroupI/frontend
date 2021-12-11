@@ -22,6 +22,8 @@ class _MultipleUrlState extends State<MultipleUrl> {
   List<String> longURLList = [];
   bool displayResult = false;
   String shortURL = "";
+  String errorMessage = "Invalid url "
+      "provided - Check it out!";
 
   @override
   Widget build(BuildContext context) {
@@ -126,8 +128,7 @@ class _MultipleUrlState extends State<MultipleUrl> {
     );
 
     var shortedURL = (shortURL.isEmpty)
-        ? Flexible(flex:3, child: errorMessageBox("Invalid url "
-        "provided - Check it out!"))
+        ? Flexible(flex:3, child: errorMessageBox(errorMessage))
         : Flexible(flex: 3, child: clipboardBox()
     );
 
@@ -256,10 +257,17 @@ class _MultipleUrlState extends State<MultipleUrl> {
 
   Future<void> handleShortMultipleURL() async {
     var shortened = await restAPIClient.shortMultipleURL(longURLList);
-    setState(() {
-      displayResult = true;
-      shortURL = shortened ?? "";
-    });
+    try {
+      setState(() {
+        displayResult = true;
+        shortURL = shortened ?? "";
+      });
+    } catch(err) {
+      setState((){
+        displayResult = true;
+        shortURL = "";
+      });
+    }
   }
 
   _MultipleUrlState({required this.restAPIClient});
