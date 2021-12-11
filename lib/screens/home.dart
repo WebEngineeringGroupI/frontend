@@ -67,7 +67,7 @@ class _HomeState extends State<Home> {
         Flexible(flex:1, child:title),
         Flexible(flex:1, child:slogan),
         Flexible(flex:1, child:shortenerTabBar()),
-        Expanded(flex:5, child:Padding(
+        Expanded(flex:7, child:Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 5),
                   child: shortenerTabBarView(restAPIClient: restAPIClient))
         ),

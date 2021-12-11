@@ -94,17 +94,17 @@ class _BalanceURLsState extends State<BalanceURLs> {
       children: [
         const Flexible(child: SizedBox(height: 25)),
         textInfo,
-        urlList,
         const Flexible(child: SizedBox(height: 25)),
+        textField,
         Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              textField,
               addURLButtoon,
             ],
         ),
-
-        const Flexible(child: SizedBox(height: 25)),
+        const Flexible(child: SizedBox(height: 10)),
+        urlList,
+        const Flexible(child: SizedBox(height: 10)),
         shortButton,
       ],
     );

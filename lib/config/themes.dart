@@ -32,6 +32,11 @@ class Themes {
           backgroundColor:MaterialStateProperty.all(Colors.deepPurple),
         )
       ),
+      textButtonTheme: TextButtonThemeData(
+        style: ButtonStyle(
+          foregroundColor: MaterialStateProperty.all(Colors.deepPurple),
+        )
+      ),
       /// TabBar widget
       tabBarTheme: const TabBarTheme(
           labelColor: Colors.deepPurple,
