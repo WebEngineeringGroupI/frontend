@@ -3,7 +3,7 @@ import 'package:flutter_app/config/themes.dart';
 import 'package:flutter_app/config/constants.dart';
 import 'package:flutter_app/config/routes.dart';
 import 'package:flutter_app/services/grpc_api_client.dart';
-import 'package:flutter_app/services/rest_api_client.dart';
+import 'package:flutter_app/services/api_client.dart';
 import 'package:grpc/grpc_or_grpcweb.dart';
 
 String urlEnvironment() {

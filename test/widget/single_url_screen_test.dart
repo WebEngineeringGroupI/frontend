@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/main.dart';
-import 'package:flutter_app/services/fake_rest_api_client.dart';
-import 'package:flutter_app/services/rest_api_client.dart';
+import 'package:flutter_app/services/api_client.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:flutter_app/screens/single_url.dart';
-import 'package:flutter_app/config/constants.dart';
+import 'package:flutter_app/screens/short_url.dart';
 
 Widget buildTestableWidget(Widget widget) {
   // https://docs.flutter.io/flutter/widgets/MediaQuery-class.html

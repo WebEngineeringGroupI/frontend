@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/config/constants.dart';
-import 'package:flutter_app/screens/csv.dart';
-import 'package:flutter_app/screens/multiple_url.dart';
-import 'package:flutter_app/screens/single_url.dart';
-import 'package:flutter_app/services/rest_api_client.dart';
+import 'package:flutter_app/screens/short_csv.dart';
+import 'package:flutter_app/screens/balance_urls.dart';
+import 'package:flutter_app/screens/short_url.dart';
+import 'package:flutter_app/services/api_client.dart';
 
 const csvTabKey = Key('csvTabKey');
 
@@ -29,8 +29,8 @@ Widget shortenerTabBar() {
 /// Tab bar content
 Widget shortenerTabBarView({required APIClient restAPIClient}) {
   return TabBarView(physics: const NeverScrollableScrollPhysics(), children: [
-    SingleUrl(restAPIClient: restAPIClient),
-    MultipleUrl(restAPIClient: restAPIClient),
-    Csv(restAPIClient: restAPIClient)
+    ShortURL(restAPIClient: restAPIClient),
+    BalanceURLs(restAPIClient: restAPIClient),
+    ShortCSV(restAPIClient: restAPIClient)
   ]);
 }

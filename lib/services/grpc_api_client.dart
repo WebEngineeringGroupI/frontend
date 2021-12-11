@@ -1,5 +1,5 @@
 import 'dart:typed_data';
-import 'package:flutter_app/services/rest_api_client.dart';
+import 'package:flutter_app/services/api_client.dart';
 import 'package:genproto_dart/api/v1alpha1/url_shortener.pbgrpc.dart';
 import 'package:grpc/grpc_or_grpcweb.dart';
 
@@ -45,7 +45,7 @@ class GRPCAPIClient implements APIClient {
   }
 
   @override
-  Future<String?> shortMultipleURL(List<String> longURLs) async{
+  Future<String?> balanceURLs(List<String> longURLs) async{
     var balanceURLs = urlShorteningClient.balanceURLs(BalanceURLsRequest(urls: longURLs));
     return await balanceURLs
         .onError((error, stackTrace) => throw error.toString())

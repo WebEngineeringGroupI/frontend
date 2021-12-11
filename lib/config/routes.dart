@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/screens/home.dart';
-import 'package:flutter_app/services/rest_api_client.dart';
+import 'package:flutter_app/services/api_client.dart';
 
 ///This map contains the app routing
 Map<String, WidgetBuilder> routes({required APIClient restAPIClient}) {

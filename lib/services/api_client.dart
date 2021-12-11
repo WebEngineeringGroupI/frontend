@@ -1,5 +1,6 @@
 import 'dart:typed_data';
 
+/// API Client Interface
 class APIClient {
   Future<String?> shortURL(String longURL) {
     return Future.value(null);
@@ -9,7 +10,7 @@ class APIClient {
     return Future.value(null);
   }
 
-  Future<String?> shortMultipleURL(List<String> longURLs) {
+  Future<String?> balanceURLs(List<String> longURLs) {
     return Future.value(null);
   }
 }
