@@ -1,5 +1,5 @@
 import 'dart:typed_data';
-import 'package:flutter_app/services/rest_api_client.dart';
+import 'package:flutter_app/services/api_client.dart';
 import 'package:genproto_dart/api/v1alpha1/url_shortener.pbgrpc.dart';
 import 'package:grpc/grpc_or_grpcweb.dart';
 

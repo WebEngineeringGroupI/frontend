@@ -3,7 +3,7 @@ import 'dart:html' as webFile;
 import 'package:flutter/material.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter_app/config/constants.dart';
-import 'package:flutter_app/services/rest_api_client.dart';
+import 'package:flutter_app/services/api_client.dart';
 
 
 const csvButtonKey = Key('csvButtonKey');

@@ -3,7 +3,7 @@ import 'package:flutter_app/config/constants.dart';
 import 'package:flutter_app/screens/csv.dart';
 import 'package:flutter_app/screens/multiple_url.dart';
 import 'package:flutter_app/screens/single_url.dart';
-import 'package:flutter_app/services/rest_api_client.dart';
+import 'package:flutter_app/services/api_client.dart';
 
 const csvTabKey = Key('csvTabKey');
 

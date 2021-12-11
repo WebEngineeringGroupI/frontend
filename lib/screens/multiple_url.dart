@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_app/config/constants.dart';
-import 'package:flutter_app/services/rest_api_client.dart';
+import 'package:flutter_app/services/api_client.dart';
 import 'package:flutter_app/widgets/error_message_box.dart';
 
 
