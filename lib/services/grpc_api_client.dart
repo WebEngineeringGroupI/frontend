@@ -1,12 +1,12 @@
 import 'dart:typed_data';
 import 'package:flutter_app/services/rest_api_client.dart';
-import 'package:grpc/grpc.dart';
 import 'package:genproto_dart/api/v1alpha1/url_shortener.pbgrpc.dart';
+import 'package:grpc/grpc_or_grpcweb.dart';
 
 class GRPCAPIClient implements APIClient {
   late final URLShorteningClient urlShorteningClient;
 
-  GRPCAPIClient(ClientChannel grpcChannel) {
+  GRPCAPIClient(GrpcOrGrpcWebClientChannel grpcChannel) {
     this.urlShorteningClient = URLShorteningClient(grpcChannel);
   }
 
@@ -35,7 +35,7 @@ class GRPCAPIClient implements APIClient {
       }
     }
 
-    var shortURLs = urlShorteningClient.shortURLs(sholib/screens/csv.dart:54:9rtURLRequest());
+    var shortURLs = urlShorteningClient.shortURLs(shortURLRequest());
     var csvContents = shortURLs
         .map((e) => e.hasSuccess()
             ? (e.success.longUrl + "," + e.success.shortUrl)

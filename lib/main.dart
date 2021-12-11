@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app/config/themes.dart';
 import 'package:flutter_app/config/constants.dart';
 import 'package:flutter_app/config/routes.dart';
-import 'package:flutter_app/services/backend_rest_api_client.dart';
+import 'package:flutter_app/services/grpc_api_client.dart';
 import 'package:flutter_app/services/rest_api_client.dart';
+import 'package:grpc/grpc_or_grpcweb.dart';
 
 String urlEnvironment() {
   const env = String.fromEnvironment("env");
@@ -15,8 +16,18 @@ String urlEnvironment() {
   }
 }
 
+GrpcOrGrpcWebClientChannel grpcChannel() {
+  const env = String.fromEnvironment("env");
+  switch (env) {
+    case "prod":
+      return GrpcOrGrpcWebClientChannel.toSingleEndpoint(host: "grpc.webeng.ovh", port: 443, transportSecure: true);
+    default:
+      return GrpcOrGrpcWebClientChannel.toSingleEndpoint(host: "localhost", port: 8081, transportSecure: false);
+  }
+}
+
 void main() {
-  runApp(MyApp(restAPIClient: BackendRestAPIClient(baseUrl: urlEnvironment())));
+  runApp(MyApp(restAPIClient: GRPCAPIClient(grpcChannel())));
 }
 
 class MyApp extends StatelessWidget {
