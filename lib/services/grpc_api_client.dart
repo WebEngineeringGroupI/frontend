@@ -27,15 +27,17 @@ class GRPCAPIClient implements APIClient {
   }
 
   @override
-  Future<String?> shortCSV(Uint8List longCSV) async {
+  Future<String> shortCSV(Uint8List longCSV) async {
     var fileContents = String.fromCharCodes(longCSV);
     var shortCSV = <String>[];
-    for (var longURL in fileContents.split("\n")) {
-      var shortURL = urlShorteningClient.shortSingleURL(ShortSingleURLRequest(url: longURL));
-      shortCSV.add( await shortURL
-          .then((value) => longURL + "," + value.shortUrl)
-          .catchError((err) => longURL + "," + err.toString())
-      );
+    for( var longURL in fileContents.split("\n")) {
+      if (longURL.isNotEmpty) {
+        var shortURL = urlShorteningClient.shortSingleURL(ShortSingleURLRequest(url: longURL));
+        shortCSV.add(await shortURL
+            .then((value) => longURL + "," + value.shortUrl)
+            .catchError((err) => longURL + "," + err.toString())
+        );
+      }
     }
     return shortCSV.join("\n");
   }

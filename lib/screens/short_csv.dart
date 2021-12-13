@@ -74,18 +74,14 @@ class _ShortCSVState extends State<ShortCSV> {
     if (csv != null) {
       //User has added a csv file
       var csvBytes = csv.files.single.bytes ?? Uint8List(0);
-      String? response = await widget.restAPIClient.shortCSV(csvBytes);
-      if (response != null) {
-        //Auto download csv file
-        var blob = webFile.Blob([response]);
-        webFile.AnchorElement(
-          href: webFile.Url.createObjectUrl(blob),
-        )
-          ..setAttribute("download", "file.csv")
-          ..click();
-      } else {
-        //TODO: CASE MALFORMED CSV SENDED
-      }
+      String response = await widget.restAPIClient.shortCSV(csvBytes) ?? "";
+      //Auto download csv file
+      var blob = webFile.Blob([response]);
+      webFile.AnchorElement(
+        href: webFile.Url.createObjectUrl(blob),
+      )
+        ..setAttribute("download", "file.csv")
+        ..click();
     }
   }
 }
