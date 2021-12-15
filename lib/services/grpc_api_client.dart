@@ -35,7 +35,7 @@ class GRPCAPIClient implements APIClient {
         var shortURL = urlShorteningClient.shortSingleURL(ShortSingleURLRequest(url: longURL));
         shortCSV.add(await shortURL
             .then((value) => longURL + "," + value.shortUrl)
-            .catchError((err) => longURL + "," + err.toString())
+            .catchError((err) => longURL + "," + "Invalid url provided - Check it out!")
         );
       }
     }
