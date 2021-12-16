@@ -1,4 +1,5 @@
 import 'dart:typed_data';
+import 'package:dio/dio.dart';
 import 'package:flutter_app/services/api_client.dart';
 import 'package:genproto_dart/api/v1alpha1/url_shortener.pbgrpc.dart';
 import 'package:grpc/grpc_or_grpcweb.dart';
@@ -26,22 +27,19 @@ class GRPCAPIClient implements APIClient {
   }
 
   @override
-  Future<String?> shortCSV(Uint8List longCSV) async {
+  Future<String> shortCSV(Uint8List longCSV) async {
     var fileContents = String.fromCharCodes(longCSV);
-
-    Stream<ShortURLsRequest> shortURLRequest() async* {
-      for (var longURL in fileContents.split("\n")) {
-        yield ShortURLsRequest(url: longURL);
+    var shortCSV = <String>[];
+    for( var longURL in fileContents.split("\n")) {
+      if (longURL.isNotEmpty) {
+        var shortURL = urlShorteningClient.shortSingleURL(ShortSingleURLRequest(url: longURL));
+        shortCSV.add(await shortURL
+            .then((value) => longURL + "," + value.shortUrl)
+            .catchError((err) => longURL + "," + "Invalid url provided - Check it out!")
+        );
       }
     }
-
-    var shortURLs = urlShorteningClient.shortURLs(shortURLRequest());
-    var csvContents = shortURLs
-        .map((e) => e.hasSuccess()
-            ? (e.success.longUrl + "," + e.success.shortUrl)
-            : (e.error.url + "," + e.error.error))
-        .join("\n");
-    return await csvContents;
+    return shortCSV.join("\n");
   }
 
   @override
