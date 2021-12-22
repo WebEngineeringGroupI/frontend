@@ -20,9 +20,11 @@ GrpcOrGrpcWebClientChannel grpcChannel() {
   const env = String.fromEnvironment("env");
   switch (env) {
     case "prod":
-      return GrpcOrGrpcWebClientChannel.toSingleEndpoint(host: "grpc.webeng.ovh", port: 443, transportSecure: true);
+      return GrpcOrGrpcWebClientChannel.toSingleEndpoint(
+          host: "grpc.webeng.ovh", port: 443, transportSecure: true);
     default:
-      return GrpcOrGrpcWebClientChannel.toSingleEndpoint(host: "localhost", port: 8081, transportSecure: false);
+      return GrpcOrGrpcWebClientChannel.toSingleEndpoint(
+          host: "localhost", port: 8081, transportSecure: false);
   }
 }
 

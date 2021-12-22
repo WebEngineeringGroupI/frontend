@@ -11,32 +11,29 @@ class Themes {
 
       /// TextForm decoration
       inputDecorationTheme: const InputDecorationTheme(
-        enabledBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: Color.fromRGBO(197, 205, 215, 1.0),
-              width: 2.0),
-        ),
-        focusedBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: Color.fromRGBO(197, 205, 215, 1.0),
-              width: 2.0),
-        ),
-        hintStyle: TextStyle(color: Color.fromRGBO(197, 205, 215, 1.0))
-      ),
-
+          enabledBorder: OutlineInputBorder(
+            borderSide: BorderSide(
+                color: Color.fromRGBO(197, 205, 215, 1.0), width: 2.0),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderSide: BorderSide(
+                color: Color.fromRGBO(197, 205, 215, 1.0), width: 2.0),
+          ),
+          hintStyle: TextStyle(color: Color.fromRGBO(197, 205, 215, 1.0))),
       textSelectionTheme: const TextSelectionThemeData(
         cursorColor: Colors.deepPurple,
       ),
 
       /// Button widget
       elevatedButtonTheme: ElevatedButtonThemeData(
-        style: ButtonStyle(
-          backgroundColor:MaterialStateProperty.all(Colors.deepPurple),
-        )
-      ),
+          style: ButtonStyle(
+        backgroundColor: MaterialStateProperty.all(Colors.deepPurple),
+      )),
       textButtonTheme: TextButtonThemeData(
-        style: ButtonStyle(
-          foregroundColor: MaterialStateProperty.all(Colors.deepPurple),
-        )
-      ),
+          style: ButtonStyle(
+        foregroundColor: MaterialStateProperty.all(Colors.deepPurple),
+      )),
+
       /// TabBar widget
       tabBarTheme: const TabBarTheme(
           labelColor: Colors.deepPurple,

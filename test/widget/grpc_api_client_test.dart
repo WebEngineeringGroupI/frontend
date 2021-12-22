@@ -28,8 +28,7 @@ void main() {
 
     expect(
         shortCSV,
-        'https://google.com,https://webeng.ovh/r/cv6VxVdu\n'
-        ',empty URL provided');
+        'https://google.com,https://webeng.ovh/r/cv6VxVdu');
   });
 
   test("when the csv contains an invalid url", () async {
@@ -45,7 +44,6 @@ void main() {
         'https://google.com,https://webeng.ovh/r/cv6VxVdu\n'
         'ftp://youtube.com,invalid long URL specified');
   });
-
 }
 
 Uint8List csvContents() {

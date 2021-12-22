@@ -4,7 +4,6 @@ import 'package:flutter_app/config/constants.dart';
 import 'package:flutter_app/services/api_client.dart';
 import 'package:flutter_app/widgets/error_message_box.dart';
 
-
 class BalanceURLs extends StatefulWidget {
   final APIClient restAPIClient;
 
@@ -17,7 +16,7 @@ class BalanceURLs extends StatefulWidget {
 
 class _BalanceURLsState extends State<BalanceURLs> {
   final APIClient restAPIClient;
-  ScrollController scrollController =  ScrollController();
+  ScrollController scrollController = ScrollController();
   TextEditingController longURLController = TextEditingController();
   List<String> longURLList = [];
   bool displayResult = false;
@@ -36,36 +35,39 @@ class _BalanceURLsState extends State<BalanceURLs> {
 
   Widget urlShorteningInputBox() {
     var textInfo = Flexible(
-      child: Text(Constants.MULTIPLE_URLS_INFO,
+      child: Text(
+        Constants.MULTIPLE_URLS_INFO,
         style: Theme.of(context).textTheme.subtitle1,
         maxLines: 2,
       ),
     );
 
     var urlList = Flexible(
-      flex: 2,
-    child:Container(
-      height: 80.0 * longURLList.length,
-      child: ListView.builder(
-        itemCount: longURLList.length,
-        controller: scrollController,
-        itemBuilder: (context, index) {
-          return Card(
-            child: SizedBox(
-              child: ListTile(
-                trailing: IconButton(
-                    onPressed:() => handleDeleteLongUrl(index),
-                    icon: Icon(Icons.delete_outline)),
-                title: Text(longURLList[index],),
-              ),
-            ),
-          );
-        },
-      ),
-    ));
+        flex: 2,
+        child: Container(
+          height: 80.0 * longURLList.length,
+          child: ListView.builder(
+            itemCount: longURLList.length,
+            controller: scrollController,
+            itemBuilder: (context, index) {
+              return Card(
+                child: SizedBox(
+                  child: ListTile(
+                    trailing: IconButton(
+                        onPressed: () => handleDeleteLongUrl(index),
+                        icon: Icon(Icons.delete_outline)),
+                    title: Text(
+                      longURLList[index],
+                    ),
+                  ),
+                ),
+              );
+            },
+          ),
+        ));
 
     var textField = Flexible(
-      flex:4,
+      flex: 4,
       child: TextField(
         controller: longURLController,
         decoration: const InputDecoration(
@@ -74,11 +76,14 @@ class _BalanceURLsState extends State<BalanceURLs> {
       ),
     );
 
-    var addURLButtoon =  Flexible(
+    var addURLButtoon = Flexible(
       flex: 1,
-      child: TextButton(onPressed: handleAddLongURL, child: Text("Add URL"),),
+      child: TextButton(
+        onPressed: handleAddLongURL,
+        child: Text("Add URL"),
+      ),
     );
-    
+
     var shortButton = Flexible(
       child: SizedBox(
         height: 50,
@@ -99,12 +104,11 @@ class _BalanceURLsState extends State<BalanceURLs> {
         const Flexible(child: SizedBox(height: 25)),
         textField,
         Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              addURLButtoon,
-            ],
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            addURLButtoon,
+          ],
         ),
-
         const Flexible(child: SizedBox(height: 10)),
         shortButton,
       ],
@@ -117,8 +121,7 @@ class _BalanceURLsState extends State<BalanceURLs> {
         child: Text(
           "Shorted URL:",
           style: Theme.of(context).textTheme.subtitle2,
-        )
-    );
+        ));
 
     var titleText = Flexible(
       flex: 2,
@@ -129,17 +132,15 @@ class _BalanceURLsState extends State<BalanceURLs> {
     );
 
     var shortedURL = (shortURL.isEmpty)
-        ? Flexible(flex:3, child: errorMessageBox(errorMessage))
-        : Flexible(flex: 3, child: clipboardBox()
-    );
+        ? Flexible(flex: 3, child: errorMessageBox(errorMessage))
+        : Flexible(flex: 3, child: clipboardBox());
 
     var originalsLabel = Flexible(
         flex: 2,
         child: Text(
           "Original URLs:",
           style: Theme.of(context).textTheme.subtitle2,
-        )
-    );
+        ));
 
     var longURLs = Flexible(
       flex: 3,
@@ -172,8 +173,8 @@ class _BalanceURLsState extends State<BalanceURLs> {
     var box = Container(
       decoration: BoxDecoration(
           border: Border.all(
-            color: const Color.fromRGBO(197, 205, 215, 1.0),
-          )),
+        color: const Color.fromRGBO(197, 205, 215, 1.0),
+      )),
       padding: const EdgeInsets.all(10.0),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -202,8 +203,8 @@ class _BalanceURLsState extends State<BalanceURLs> {
     return Container(
       decoration: BoxDecoration(
           border: Border.all(
-            color: const Color.fromRGBO(197, 205, 215, 1.0),
-          )),
+        color: const Color.fromRGBO(197, 205, 215, 1.0),
+      )),
       padding: EdgeInsets.symmetric(horizontal: 5.0),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -244,6 +245,7 @@ class _BalanceURLsState extends State<BalanceURLs> {
       }
     });
   }
+
   void handleGoBack() {
     setState(() {
       displayResult = false;
@@ -263,8 +265,8 @@ class _BalanceURLsState extends State<BalanceURLs> {
         displayResult = true;
         shortURL = shortened ?? "";
       });
-    } catch(err) {
-      setState((){
+    } catch (err) {
+      setState(() {
         displayResult = true;
         shortURL = "";
       });

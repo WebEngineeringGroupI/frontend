@@ -6,31 +6,31 @@ import 'package:flutter_app/config/constants.dart';
 
 void main() {
   testWidgets('When csv tab is pushed, there is an info text',
-          (WidgetTester tester) async {
-        // Build app screen and capture the first frame
-        await tester.pumpWidget(MyApp(restAPIClient: APIClient()));
+      (WidgetTester tester) async {
+    // Build app screen and capture the first frame
+    await tester.pumpWidget(MyApp(restAPIClient: APIClient()));
 
-        var csvTab = find.text(Constants.CSV_TAB);
-        expect(csvTab, findsOneWidget);
+    var csvTab = find.text(Constants.CSV_TAB);
+    expect(csvTab, findsOneWidget);
 
-        await tester.tap(csvTab);
-        await tester.pumpAndSettle();
+    await tester.tap(csvTab);
+    await tester.pumpAndSettle();
 
-        expect(find.text(Constants.CSV_INFO), findsOneWidget);
-      });
+    expect(find.text(Constants.CSV_INFO), findsOneWidget);
+  });
 
   testWidgets('When csv tab is pushed, there is an "Add csv file" button',
-          (WidgetTester tester) async {
-        // Build app screen and capture the first frame
-        await tester.pumpWidget(MyApp(restAPIClient: APIClient()));
+      (WidgetTester tester) async {
+    // Build app screen and capture the first frame
+    await tester.pumpWidget(MyApp(restAPIClient: APIClient()));
 
-        var csvTab = find.text(Constants.CSV_TAB);
-        expect(csvTab, findsOneWidget);
+    var csvTab = find.text(Constants.CSV_TAB);
+    expect(csvTab, findsOneWidget);
 
-        await tester.tap(csvTab);
-        await tester.pumpAndSettle();
+    await tester.tap(csvTab);
+    await tester.pumpAndSettle();
 
-        var csvButton = find.byKey(csvButtonKey);
-        expect(csvButton, findsOneWidget);
-      });
+    var csvButton = find.byKey(csvButtonKey);
+    expect(csvButton, findsOneWidget);
+  });
 }

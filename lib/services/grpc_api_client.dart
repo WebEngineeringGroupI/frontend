@@ -31,11 +31,19 @@ class GRPCAPIClient implements APIClient {
     var fileContents = String.fromCharCodes(longCSV);
     var shortCSV = <String>[];
     for (var longURL in fileContents.split("\n")) {
+      if (longURL.isEmpty) {
+        continue;
+      }
       var shortURL = urlShorteningClient
           .shortSingleURL(ShortSingleURLRequest(url: longURL));
       shortCSV.add(await shortURL
           .then((value) => longURL + "," + value.shortUrl)
-          .catchError((err) => longURL + "," + ((err is GrpcError) ? err.message ?? "Unknown error" : err.toString())));
+          .catchError((err) =>
+              longURL +
+              "," +
+              ((err is GrpcError)
+                  ? err.message ?? "Unknown error"
+                  : err.toString())));
     }
     return shortCSV.join("\n");
   }
