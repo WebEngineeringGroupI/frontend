@@ -2,4 +2,4 @@
 .PHONY: test
 test:
 	dart analyze
-	flutter test
+	flutter test --platform chrome
