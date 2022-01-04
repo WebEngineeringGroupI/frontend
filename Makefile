@@ -2,4 +2,7 @@
 .PHONY: test
 test:
 	dart analyze
-	flutter test
+	flutter test --platform chrome
+
+fmt:
+	flutter format ./..

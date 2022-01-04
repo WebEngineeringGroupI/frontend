@@ -14,8 +14,7 @@ class ShortURL extends StatefulWidget {
   ShortURL({Key? key, required this.restAPIClient}) : super(key: key);
 
   @override
-  _ShortURLState createState() =>
-      _ShortURLState(restAPIClient: restAPIClient);
+  _ShortURLState createState() => _ShortURLState(restAPIClient: restAPIClient);
 }
 
 class _ShortURLState extends State<ShortURL> {
@@ -94,7 +93,7 @@ class _ShortURLState extends State<ShortURL> {
                 style: Theme.of(context).textTheme.subtitle2,
               )),
           (shortURL.isEmpty)
-              ? Flexible(flex:3, child: errorMessageBox(errorMessage))
+              ? Flexible(flex: 3, child: errorMessageBox(errorMessage))
               : Flexible(flex: 3, child: clipboardBox()),
           Flexible(
               flex: 2,
@@ -172,13 +171,12 @@ class _ShortURLState extends State<ShortURL> {
         displayResult = true;
         shortURL = shortened ?? "";
       });
-    } catch(err) {
-      setState((){
+    } catch (err) {
+      setState(() {
         displayResult = true;
         shortURL = "";
       });
     }
-
   }
 
   _ShortURLState({required this.restAPIClient});

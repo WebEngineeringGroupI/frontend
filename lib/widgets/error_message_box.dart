@@ -13,11 +13,11 @@ Widget errorMessageBox(message) {
         const Icon(Icons.error_outline, color: Colors.redAccent),
         Flexible(
             child: Text(
-              message,
-              style: const TextStyle(color: Color.fromRGBO(136, 0, 27, 1.0)),
-              maxLines: 1,
-              overflow: TextOverflow.ellipsis,
-            )),
+          message,
+          style: const TextStyle(color: Color.fromRGBO(136, 0, 27, 1.0)),
+          maxLines: 1,
+          overflow: TextOverflow.ellipsis,
+        )),
       ],
     ),
   );

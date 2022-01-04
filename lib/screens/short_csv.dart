@@ -22,7 +22,8 @@ class _ShortCSVState extends State<ShortCSV> {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         const Flexible(child: SizedBox(height: 25)),
-        Text(Constants.CSV_INFO,
+        Text(
+          Constants.CSV_INFO,
           style: Theme.of(context).textTheme.subtitle1,
           maxLines: 2,
         ),
@@ -35,21 +36,21 @@ class _ShortCSVState extends State<ShortCSV> {
   Widget csvShorteningBox() {
     var border = BoxDecoration(
         border: Border.all(
-          color: const Color.fromRGBO(197, 205, 215, 1.0),
-        ));
+      color: const Color.fromRGBO(197, 205, 215, 1.0),
+    ));
     var buttonCSVselection = SizedBox(
         height: 50,
-        child:OutlinedButton(
-        onPressed: addCSVHandler,
-        child: Text(
-          Constants.CSV_BUTTON,
-          key: csvButtonKey,
-        )));
+        child: OutlinedButton(
+            onPressed: addCSVHandler,
+            child: Text(
+              Constants.CSV_BUTTON,
+              key: csvButtonKey,
+            )));
 
     var icon = Icon(Icons.upload_sharp, color: Colors.black45);
 
     return Container(
-      decoration: border,
+        decoration: border,
         padding: const EdgeInsets.all(10.0),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
