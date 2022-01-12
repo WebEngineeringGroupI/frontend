@@ -40,7 +40,7 @@ class GRPCAPIClient implements APIClient {
           .then((value) => longURL + "," + value.shortUrl)
           .catchError((err) =>
               longURL +
-              "," +
+              ",," +
               ((err is GrpcError)
                   ? err.message ?? "Unknown error"
                   : err.toString())));
