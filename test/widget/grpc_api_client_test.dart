@@ -42,7 +42,7 @@ void main() {
     expect(
         shortCSV,
         'https://google.com,https://webeng.ovh/r/cv6VxVdu\n'
-        'ftp://youtube.com,invalid long URL specified');
+        'ftp://youtube.com,,invalid long URL specified');
   });
 }
 
